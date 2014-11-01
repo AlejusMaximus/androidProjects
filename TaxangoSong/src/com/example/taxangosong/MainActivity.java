@@ -16,11 +16,11 @@ public class MainActivity extends ActionBarActivity {
 		Log.e("Pickle", "onCreate");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		somUnRiu = MediaPlayer.create(this, R.raw.som_un_riu);
 	}
 	@Override
 	protected void onResume() {
 		Log.e("Pickle", "onResume");
+		somUnRiu = MediaPlayer.create(this, R.raw.som_un_riu);
 		somUnRiu.start();
 		super.onResume();
 	}
@@ -28,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
 	protected void onPause() {
 		Log.e("Pickle", "onPause");
 		somUnRiu.stop();
+		somUnRiu.release();
 		super.onPause();
 	}
 
