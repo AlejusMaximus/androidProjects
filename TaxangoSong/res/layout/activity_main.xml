@@ -8,22 +8,21 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.taxangosong.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <ImageView
+        android:id="@+id/coverart"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/coverartDescription"
+        android:src="@drawable/txarangocover" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="79dp"
-        android:onClick="openUAB"
-        android:text="Button" />
+		android:layout_alignParentBottom="true"
+        android:onClick="openWS"
+        android:text="@string/buy" />
 
     <Button
         android:id="@+id/button2"
@@ -31,9 +30,26 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button1"
         android:layout_alignBottom="@+id/button1"
-        android:layout_marginLeft="52dp"
+        android:layout_marginLeft="38dp"
         android:layout_toRightOf="@+id/button1"
-        android:onClick="openTV3"
-        android:text="Button" />
+        android:onClick="openFB"
+        android:text="@string/facebook" />
+    
+        <ScrollView
+        android:id="@+id/scrolly"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_below="@id/coverart" 
+        android:layout_above="@id/button1"
+        >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/coverart"
+            android:text="@string/lyrics"
+            android:textSize="16sp" />
+    </ScrollView>
 
 </RelativeLayout>

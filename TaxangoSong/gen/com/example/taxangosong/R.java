@@ -1079,6 +1079,7 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
         public static final int txarango_album=0x7f020058;
+        public static final int txarangocover=0x7f020059;
     }
     public static final class id {
         public static final int action_bar=0x7f0a001c;
@@ -1092,7 +1093,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0a0002;
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_close_button=0x7f0a0024;
-        public static final int action_settings=0x7f0a003f;
+        public static final int action_settings=0x7f0a0041;
         public static final int activity_chooser_view_content=0x7f0a0025;
         public static final int always=0x7f0a000f;
         public static final int beginning=0x7f0a0016;
@@ -1100,6 +1101,7 @@ containing a value of this type.
         public static final int button2=0x7f0a003e;
         public static final int checkbox=0x7f0a002d;
         public static final int collapseActionView=0x7f0a0010;
+        public static final int coverart=0x7f0a003c;
         public static final int default_activity_button=0x7f0a0028;
         public static final int dialog=0x7f0a0014;
         public static final int disableHome=0x7f0a0009;
@@ -1122,6 +1124,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f0a0004;
         public static final int progress_horizontal=0x7f0a0005;
         public static final int radio=0x7f0a002f;
+        public static final int scrolly=0x7f0a003f;
         public static final int search_badge=0x7f0a0032;
         public static final int search_bar=0x7f0a0031;
         public static final int search_button=0x7f0a0033;
@@ -1139,7 +1142,7 @@ containing a value of this type.
         public static final int split_action_bar=0x7f0a001e;
         public static final int submit_area=0x7f0a0039;
         public static final int tabMode=0x7f0a0008;
-        public static final int textView1=0x7f0a003c;
+        public static final int textView1=0x7f0a0040;
         public static final int title=0x7f0a002b;
         public static final int top_action_bar=0x7f0a0020;
         public static final int up=0x7f0a0021;
@@ -1246,9 +1249,12 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0b000b;
-        public static final int action_settings=0x7f0b000f;
+        public static final int action_settings=0x7f0b000e;
         public static final int app_name=0x7f0b000d;
-        public static final int hello_world=0x7f0b000e;
+        public static final int buy=0x7f0b0011;
+        public static final int coverartDescription=0x7f0b0010;
+        public static final int facebook=0x7f0b0012;
+        public static final int lyrics=0x7f0b000f;
     }
     public static final class style {
         /** 
