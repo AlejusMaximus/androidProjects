@@ -235,8 +235,7 @@ int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
 int drawable ic_launcher 0x7f020057
-int drawable txarango_album 0x7f020058
-int drawable txarangocover 0x7f020059
+int drawable txarangocover 0x7f020058
 int id action_bar 0x7f0a001c
 int id action_bar_activity_content 0x7f0a0001
 int id action_bar_container 0x7f0a001b
@@ -252,8 +251,6 @@ int id action_settings 0x7f0a0041
 int id activity_chooser_view_content 0x7f0a0025
 int id always 0x7f0a000f
 int id beginning 0x7f0a0016
-int id button1 0x7f0a003d
-int id button2 0x7f0a003e
 int id checkbox 0x7f0a002d
 int id collapseActionView 0x7f0a0010
 int id coverart 0x7f0a003c
@@ -265,6 +262,7 @@ int id edit_query 0x7f0a0030
 int id end 0x7f0a0017
 int id expand_activities_button 0x7f0a0026
 int id expanded_menu 0x7f0a002c
+int id facebookbutton 0x7f0a003d
 int id home 0x7f0a0000
 int id homeAsUp 0x7f0a000a
 int id icon 0x7f0a002a
@@ -302,6 +300,7 @@ int id title 0x7f0a002b
 int id top_action_bar 0x7f0a0020
 int id up 0x7f0a0021
 int id useLogo 0x7f0a000e
+int id website 0x7f0a003e
 int id withText 0x7f0a0013
 int integer abc_max_action_buttons 0x7f090000
 int layout abc_action_bar_decor 0x7f030000
@@ -353,6 +352,7 @@ int string facebook 0x7f0b0012
 int string lyrics 0x7f0b000f
 int style AppBaseTheme 0x7f0c008b
 int style AppTheme 0x7f0c008c
+int style LyricsText 0x7f0c008d
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0c0063
 int style TextAppearance_AppCompat_Base_SearchResult 0x7f0c006d
 int style TextAppearance_AppCompat_Base_SearchResult_Subtitle 0x7f0c006f

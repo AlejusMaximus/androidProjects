@@ -28,7 +28,6 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
@@ -39,9 +38,19 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 	}
+	// When this Activity is ready (and the layout has been been created)
+	// Android will call
+	// our onResume method. The onResume method can be called again if we are
+	// paused for some reason.
 	@Override
 	protected void onResume() {
 		Log.e("Pickle", "onResume");
+		// "MediaPlayer.create(...)" is the code that actually creates a media
+		// player object
+		// "dontcallme =" is the code that changes ('assigns') our pointer to
+		// point to the new media player object
+		// You need to add "import android.media.MediaPlayer;" 
+		// import statement at the top of this file
 		somUnRiu = MediaPlayer.create(this, R.raw.som_un_riu);
 		somUnRiu.start();
 		super.onResume();
@@ -49,16 +58,15 @@ public class MainActivity extends ActionBarActivity {
 	
 	protected void onPause() {
 		Log.e("Pickle", "onPause");
+		// We're pausing. For this demo we will just stop the MediaPlayer and
+		// then ask it to release
+		// all of the valuable resources it's using.
+		// If the user comes back to this app then onResume() will be called
+		// again
+		// (and we'll make a new Media player; see above)
 		somUnRiu.stop();
 		somUnRiu.release();
 		super.onPause();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
 	}
 
 	public void openFB(View v){

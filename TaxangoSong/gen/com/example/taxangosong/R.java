@@ -1078,8 +1078,7 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
-        public static final int txarango_album=0x7f020058;
-        public static final int txarangocover=0x7f020059;
+        public static final int txarangocover=0x7f020058;
     }
     public static final class id {
         public static final int action_bar=0x7f0a001c;
@@ -1097,8 +1096,6 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f0a0025;
         public static final int always=0x7f0a000f;
         public static final int beginning=0x7f0a0016;
-        public static final int button1=0x7f0a003d;
-        public static final int button2=0x7f0a003e;
         public static final int checkbox=0x7f0a002d;
         public static final int collapseActionView=0x7f0a0010;
         public static final int coverart=0x7f0a003c;
@@ -1110,6 +1107,7 @@ containing a value of this type.
         public static final int end=0x7f0a0017;
         public static final int expand_activities_button=0x7f0a0026;
         public static final int expanded_menu=0x7f0a002c;
+        public static final int facebookbutton=0x7f0a003d;
         public static final int home=0x7f0a0000;
         public static final int homeAsUp=0x7f0a000a;
         public static final int icon=0x7f0a002a;
@@ -1147,6 +1145,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f0a0020;
         public static final int up=0x7f0a0021;
         public static final int useLogo=0x7f0a000e;
+        public static final int website=0x7f0a003e;
         public static final int withText=0x7f0a0013;
     }
     public static final class integer {
@@ -1283,6 +1282,7 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0c008c;
+        public static final int LyricsText=0x7f0c008d;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0c0063;
