@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="31" version="2.0">
+<workbench progressCount="18" version="2.0">
 <workbenchAdvisor/>
 <window height="550" maximized="true" width="988" x="344" y="60">
 <fastViewData fastViewLocation="1024"/>
@@ -16,21 +16,22 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="156" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="88" y="30"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="30"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="40" y="30"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="68" y="30"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.browser.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1412616477853" focus="true" label="Workspace - Android">
+<page aggregateWorkingSetId="Aggregate for window 1412616477853" focus="true" label="Workspace - AndroidAleix">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
@@ -39,19 +40,21 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" partName="activity_main.xml" path="/home/aleix/workspaceAndroid/TaxangoSong/res/layout/activity_main.xml" title="activity_main.xml" tooltip="TaxangoSong/res/layout/activity_main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TaxangoSong/res/layout/activity_main.xml"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="index.html" partName="index.html" path="/home/aleix/workspaceAndroid/JavaBookAlejus/assets/index.html" title="index.html" tooltip="JavaBookAlejus/assets/index.html" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JavaBookAlejus/assets/index.html"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/aleix/workspaceAndroid/TaxangoSong/src/com/example/taxangosong/MainActivity.java" title="MainActivity.java" tooltip="TaxangoSong/src/com/example/taxangosong/MainActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TaxangoSong/src/com/example/taxangosong/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1892" selectionTopPixel="482"/>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" partName="activity_main.xml" path="/home/aleix/workspaceAndroid/JavaBookAlejus/res/layout/activity_main.xml" title="activity_main.xml" tooltip="JavaBookAlejus/res/layout/activity_main.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JavaBookAlejus/res/layout/activity_main.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="/home/aleix/workspaceAndroid/TaxangoSong/res/values/strings.xml" title="strings.xml" tooltip="TaxangoSong/res/values/strings.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/TaxangoSong/res/values/strings.xml"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/aleix/workspaceAndroid/JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java" title="MainActivity.java" tooltip="JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="561" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -69,16 +72,17 @@
 </view>
 <view id="com.android.ide.eclipse.adt.internal.lint.LintViewPart" partName="Lint Warnings">
 <viewState>
-<lintColWidth CategoryColumn="140" LocationColumn="966" MessageColumn="863"/>
+<lintColWidth CategoryColumn="140" LocationColumn="966" MessageColumn="20"/>
 <lintColVisible CategoryColumn="true" LocationColumn="true" MessageColumn="true"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (3 items)"/>
+<category IMemento.internal.id="Errors (9 items)"/>
+<category IMemento.internal.id="Warnings"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="482" org.eclipse.ui.ide.resourceField="203" org.eclipse.ui.ide.severityAndDescriptionField="768"/>
+<columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="482" org.eclipse.ui.ide.resourceField="203" org.eclipse.ui.ide.severityAndDescriptionField="715"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -140,7 +144,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.views.ContentOutline" activePerspective="Android">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="AndroidAleix">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -208,7 +212,7 @@
 </layout>
 </perspective>
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
-<descriptor descriptor="org.eclipse.jdt.ui.JavaPerspective" id="Android" label="Android"/>
+<descriptor descriptor="org.eclipse.jdt.ui.JavaPerspective" id="AndroidAleix" label="AndroidAleix"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
 <alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
 <alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
@@ -300,9 +304,9 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.14479393" ratioLeft="267" ratioRight="1577" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.7505112" ratioLeft="734" ratioRight="244" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">
+<info part="org.eclipse.ui.editorss" ratio="0.21007752" ratioLeft="271" ratioRight="1019" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6516517" ratioLeft="434" ratioRight="232" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
@@ -325,7 +329,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.5529412" ratioLeft="564" ratioRight="456" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="right" ratio="0.88742393" ratioLeft="875" ratioRight="111" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
@@ -342,96 +346,27 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/TaxangoSong/src/com/example/taxangosong/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/TaxangoSong/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/TaxangoSong/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/TaxangoSong/1.txt"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/TaxangoSong/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/TaxangoSong/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/TaxangoSong/src/com/example/taxangosong/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/TaxangoSong/res/layout/activity_main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/JavaBookAlejus/assets/index.html"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/JavaBookAlejus/res/menu/main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/JavaBookAlejus/res/layout/activity_main.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java"/>
 </editors>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="2188" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="2309" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="2309" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="0">
-<position info="not_deleted" x="1892" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="1.txt" index="3">
-<position info="not_deleted" x="0" y="1634"/>
-</item>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="1.txt" index="3">
-<position info="not_deleted" x="0" y="1634"/>
-</item>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1">
-<position info="not_deleted" x="777" y="1"/>
-</item>
-<item historyLabel="activity_main.xml" index="4">
+<item historyLabel="index.html" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="activity_main.xml" index="4">
-<position info="not_deleted" x="778" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="4">
+<item historyLabel="main.xml" index="1"/>
+<item historyLabel="index.html" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="2"/>
-<item historyLabel="activity_main.xml" index="1">
+<item historyLabel="activity_main.xml" index="2"/>
+<item historyLabel="MainActivity.java" index="3">
+<position info="not_deleted" x="561" y="0"/>
+</item>
+<item historyLabel="index.html" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="6">
-<position info="not_deleted" x="3" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="6">
-<position info="not_deleted" x="1892" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1"/>
-<item historyLabel="MainActivity.java" index="6">
-<position info="not_deleted" x="1892" y="0"/>
-</item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="1">
-<position/>
-</item>
-<item active="true" historyLabel="activity_main.xml" index="7">
-<position info="not_deleted" x="783" y="0"/>
+<item active="true" historyLabel="MainActivity.java" index="3">
+<position info="not_deleted" x="561" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -450,6 +385,18 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java">
+<persistable path="/JavaBookAlejus/src/apps101/javabookalejus/MainActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="JavaBookAlejus/res/layout/activity_main.xml">
+<persistable path="/JavaBookAlejus/res/layout/activity_main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" tooltip="JavaBookAlejus/res/menu/main.xml">
+<persistable path="/JavaBookAlejus/res/menu/main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="index.html" tooltip="JavaBookAlejus/assets/index.html">
+<persistable path="/JavaBookAlejus/assets/index.html"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="1.txt" tooltip="TaxangoSong/1.txt">
 <persistable path="/TaxangoSong/1.txt"/>
 </file>
@@ -461,9 +408,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Principal.java" tooltip="RSSAleix/src/com/example/rssaleix/Principal.java">
 <persistable path="/RSSAleix/src/com/example/rssaleix/Principal.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="TaxangoSong/src/com/example/taxangosong/MainActivity.java">
-<persistable path="/TaxangoSong/src/com/example/taxangosong/MainActivity.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="TaxangoSong/res/layout/activity_main.xml">
 <persistable path="/TaxangoSong/res/layout/activity_main.xml"/>
@@ -479,21 +423,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="HolaMundo/AndroidManifest.xml">
 <persistable path="/HolaMundo/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="HolaMundo/src/com/example/holamundo/MainActivity.java">
-<persistable path="/HolaMundo/src/com/example/holamundo/MainActivity.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="persist.sys.language" tooltip="HolaMundo/persist.sys.language">
-<persistable path="/HolaMundo/persist.sys.language"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="HolaMundo/res/layout/activity_main.xml">
-<persistable path="/HolaMundo/res/layout/activity_main.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="HolaMundo/res/values-es/strings.xml">
-<persistable path="/HolaMundo/res/values-es/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="abc_action_bar_decor_overlay.xml" tooltip="appcompat_v7/res/layout/abc_action_bar_decor_overlay.xml">
-<persistable path="/appcompat_v7/res/layout/abc_action_bar_decor_overlay.xml"/>
 </file>
 </mruList>
 </workbench>

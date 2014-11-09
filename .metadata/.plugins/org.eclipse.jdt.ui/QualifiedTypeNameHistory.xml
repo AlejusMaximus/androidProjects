@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="android.net.Uri"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="apps101.javabookalejus.R.id"/>
+<fullyQualifiedTypeName name="android.webkit.WebView"/>
 </qualifiedTypeNameHistroy>
