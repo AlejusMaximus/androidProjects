@@ -9,4 +9,5 @@
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="apps101.javabookalejus.R.id"/>
 <fullyQualifiedTypeName name="android.webkit.WebView"/>
+<fullyQualifiedTypeName name="android.view.KeyEvent"/>
 </qualifiedTypeNameHistroy>

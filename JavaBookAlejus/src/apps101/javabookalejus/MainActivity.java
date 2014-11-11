@@ -2,20 +2,23 @@ package apps101.javabookalejus;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 
 public class MainActivity extends ActionBarActivity {
-
+	WebView myWebView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		//Find that webview1
-		WebView pointer = (WebView) findViewById(R.id.webView1);
+		myWebView = (WebView) findViewById(R.id.webView1);
+		myWebView.getSettings().setBuiltInZoomControls(true);
+		// NOT needed today ... myWebView.getSettings().setJavaScriptEnabled(true);
 		//Open asset/index.html
-		pointer.loadUrl("file:///android_asset/index.html");
+		myWebView.loadUrl("file:///android_asset/index.html");
 		
 	}
 
@@ -36,5 +39,17 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    // Check if the key event was the Back button and if there's history
+	    if ((keyCode == KeyEvent.KEYCODE_BACK) && myWebView.canGoBack()) {
+	        myWebView.goBack();
+	        return true;
+	    }
+	    // If it wasn't the Back key or there's no web page history, bubble up to the default
+	    // system behavior (probably exit the activity)
+	    return super.onKeyDown(keyCode, event);
 	}
 }
