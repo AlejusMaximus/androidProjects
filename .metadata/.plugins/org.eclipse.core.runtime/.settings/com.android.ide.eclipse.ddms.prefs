@@ -4,6 +4,7 @@ com.android.ide.eclipse.ddms.explorer.name=270
 com.android.ide.eclipse.ddms.explorer.permissions=94
 com.android.ide.eclipse.ddms.explorer.size=58
 com.android.ide.eclipse.ddms.explorer.time=97
+com.android.ide.eclipse.ddms.timeOut=10000
 ddms.logcat.auotmonitor.level=error
 ddms.logcat.automonitor.userprompt=true
 devicePanel.Col0=281
