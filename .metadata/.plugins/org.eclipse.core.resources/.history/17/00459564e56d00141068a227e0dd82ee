@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
 
 		// it's time to check if email adress has "@" symbol:
 		int position = email.indexOf("@");
-		if (position == -1) {
+		if (position == -1) { 
 			// if ( ! email.contains("@") ) ... We must do something
 			Toast.makeText(this.getApplicationContext(),
 					"Invalid email adress!", Toast.LENGTH_LONG).show();
@@ -55,7 +55,8 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 		int len = comments.length();
-
+		
+		
 		if (len == 0) { // if(!comments == null)
 			Toast.makeText(this.getApplicationContext(), "Give me comments!",
 					Toast.LENGTH_LONG).show();

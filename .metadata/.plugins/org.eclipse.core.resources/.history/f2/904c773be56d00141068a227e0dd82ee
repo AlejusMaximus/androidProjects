@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -46,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
 
 		// it's time to check if email adress has "@" symbol:
 		int position = email.indexOf("@");
-		if (position == -1) {
+		if (position == -1) { 
 			// if ( ! email.contains("@") ) ... We must do something
 			Toast.makeText(this.getApplicationContext(),
 					"Invalid email adress!", Toast.LENGTH_LONG).show();
@@ -55,7 +53,8 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 		int len = comments.length();
-
+		
+		
 		if (len == 0) { // if(!comments == null)
 			Toast.makeText(this.getApplicationContext(), "Give me comments!",
 					Toast.LENGTH_LONG).show();
@@ -72,51 +71,21 @@ public class MainActivity extends ActionBarActivity {
 					Toast.LENGTH_LONG).show();
 		}
 
-		// We might run into some surprises when we try to convert
-		// a string to an integer value
+		// We might run into two surprises with the following... Can you find
+		// them?
 		// Convert a string (a sequence of characters) "123123123" into an
 		// integer value
-
-		// Notice we declare these variables OUTSIDE the try-catch block
-		// So we can use them after the catch block ends
-		int value = -1; // we will change this
-		boolean valueOK = false; // will become true if everything works out OK
-
-		try {
-			// The next line will throw an exception if it does not like our
-			// string!
-			// e.g. if phone is an empty string "3000000000" or "askdgahksdg"
-			value = Integer.parseInt(phone);
-
-			// We will skip this code if parseInt throws its
-			// NumberFormatException
-			// If everything goes to plan though we will just continue here...
-
-			valueOK = true; // Change AFTER parseInt has returned
-			Log.d("MainActivity", "Phone number:" + value);
-
-		} catch (Exception e) {
-			// Uh oh... We caught that nasty exception!!
-			// (FYI More experienced programmers might choose to catch
-			// NumberFormatException)
-
-			Log.d("MainActivity",
-					"Invalid Phone Number!? Could not be turned into an Java integer value"
-							+ phone);
-		}
-
-		if (valueOK) {
-			Log.d("MainActivity", "Phone number as an integer value:" + value);
-		}
+		int value = Integer.parseInt(phone);
+		Log.d("MainActivity", "Phone number:" + value);
 
 		String username = email.substring(0, position);
-		String thankyou = "Thankyou " + username + "!";
+		String thkx = "Thank you " + username + "!";
 
-		Toast.makeText(this.getApplicationContext(), thankyou,
-				Toast.LENGTH_LONG).show();
+		Toast.makeText(this.getApplicationContext(), thkx, Toast.LENGTH_LONG)
+				.show();
 
-		// Move the duck to the right and fade it out
-		Animation anim = AnimationUtils.makeOutAnimation(this, true);
-		duck.startAnimation(anim);
+		// duck.setVisibility(View.INVISIBLE);
+		// Toast.makeText(this.getApplicationContext(), R.string.app_name,
+		// Toast.LENGTH_LONG).show();
 	}
 }
