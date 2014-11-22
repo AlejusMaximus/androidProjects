@@ -1,6 +1,8 @@
 package apps101.aleix.survey;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -39,6 +41,68 @@ public class MainActivity extends ActionBarActivity {
 
 	public void processForm(View duck) {
 		Log.d("MainActivity", "processForm");
+		String comments = mComments.getText().toString();
+		String email = mEmail.getText().toString();
+		String phone = mPhone.getText().toString();
+		String name = mName.getText().toString();
+		
+		// Simplest way to send some text		
+//		Intent i = new Intent(Intent.ACTION_SEND);
+//		i.setType("text/plain");
+//		i.putExtra(Intent.EXTRA_TEXT, "What a wonderful app!");
+		
+		// SMS message
+//		Intent intent = new Intent(Intent.ACTION_VIEW);
+//		intent.setData(Uri.parse("sms:"+phone));
+//		// Alternative...
+//		// intent.setData(Uri.fromParts("sms", phone, null));
+//		intent.putExtra("sms_body", comments);
+		
+		String message = name + " says.. \n" + comments;
+		
+		if (phone.length() > 0) {
+			message = message + "\nPhone:" + phone;
+		}
+
+		if (email.length() > 0) {
+			message = message + "\nAlternative Email:" + email;
+		}
+		
+		
+		Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+		emailIntent.setData(Uri.fromParts("mailto",
+				"feedback@myapp.somewhere...", null)); // SENDTO: "feedback@myapp.somewhere..." -> hardcoded
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "important news"); // Subject Field on Email
+		emailIntent.putExtra(Intent.EXTRA_TEXT, message); // Message email
+		
+		if (emailIntent.resolveActivity(getPackageManager()) == null) {
+			Toast.makeText(getApplicationContext(),
+					"Please configure your email client!", Toast.LENGTH_LONG)
+					.show();
+		} else {
+			// Secondly, use a chooser will gracefully handle 0,1,2+ matching
+			// activities
+			startActivity(Intent.createChooser(emailIntent,
+					"Please choose your email app!"));
+		}
+		
+		// We are catching the problem after it happens!
+//		try {
+//			startActivity(emailIntent);
+//			// startActivity can throw ActivityNotFoundException
+//			// So to be robust our app will catch the exception ..
+//		} catch (Exception ex) {
+//			// We could tell the user it didn't work e.g. with a Toast
+//			// Also we can print the exception message and stack trace in the
+//			// log...
+//			Toast.makeText(this.getApplicationContext(), "Cannot send comments!",
+//					Toast.LENGTH_LONG).show();
+//			Log.e("Main activity", "Could not send an email!", ex);
+//		}
+	}
+
+	public void processFormOld(View duck) {
+		Log.d("MainActivity", "processFormOld");
 		String comments = mComments.getText().toString();
 		String email = mEmail.getText().toString();
 		String phone = mPhone.getText().toString();
