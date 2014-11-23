@@ -1,6 +1,8 @@
 package apps101.aleix.survey;
 
 import android.support.v7.app.ActionBarActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,7 +14,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements TextWatcher {
+	
+	private static final String TAG = "MainActivity";
 
 	private EditText mName;
 	private EditText mPhone;
@@ -22,14 +26,72 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.activity_main);
 		// Look for these views after we've created them !
-		
+
 		mName = (EditText) findViewById(R.id.name);
 		mPhone = (EditText) findViewById(R.id.phone);
 		mEmail = (EditText) findViewById(R.id.email);
 		mComments = (EditText) findViewById(R.id.comments);
+
+		// Create a pointer Text Watcher
+		// Note: watcher object has a link to our activity
+		// final MainActivity appContext = this;
+
+		// mComments.addTextChangedListener(watcher);
+		// After put the TextWatcher methods inside our Activity...
+		mComments.addTextChangedListener(this);
+	}
+
+	// Now TextWatcher methods are declared inside the activity
+
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterTextChanged(Editable s) {
+		// TODO Auto-generated method stub
+		String comments = s.toString();
+		String duck = getString(R.string.duck);
+		
+		boolean valid = comments.length() > 0
+				&& (comments.toLowerCase().indexOf(duck) == -1);
+		// If duck is written, then indexOf("duck") != -1. Then valid = false.
+		View view = findViewById(R.id.imageButton1);
+
+		//What could happened if...
+		// View view = findViewById(R.drawable.duck); -> this is not the ID for something on the screen!
+		// Then when the method view.getVisitibily runs on no object, so ->  view = null -> Null Pointer Exception
+		
+		// We can find out if the duck is visible or not:
+		boolean isVisible = view.getVisibility() == View.VISIBLE;
+
+		if (isVisible == valid) {
+			return;
+		}
+		Animation anim;
+		if (valid) {
+			view.setVisibility(View.VISIBLE);
+			anim = AnimationUtils.makeInAnimation(this, true);
+
+		} else { // if any object is created here, will only exist
+					// between else{} brackets
+			view.setVisibility(View.INVISIBLE);
+			anim = AnimationUtils.makeOutAnimation(this, true);
+		}
+		view.startAnimation(anim);
+
 	}
 
 	@Override
@@ -40,26 +102,52 @@ public class MainActivity extends ActionBarActivity {
 	}
 
 	public void processForm(View duck) {
-		Log.d("MainActivity", "processForm");
+		// Uncomment - remove the // - from one of these methods!
+		// And comment out - add // to the other two
+		simpleExample();
+		// sendSMS();
+		// sendEmail();
+	}
+
+	public void simpleExample() {
+		// The simplest code to share a message....
+		Intent i = new Intent(Intent.ACTION_SEND);
+		i.setType("text/plain");
+		i.putExtra(Intent.EXTRA_TEXT, "What a wonderful app!");
+		startActivity(i);
+		// But on real devices you will see many many matching options
+		// including Bluetooth, Google drive...
+		// And to be more robust you should catch ActivityNotFoundException...
+	}
+
+	public void sendSMS() {
+		String comments = mComments.getText().toString();
+		String phone = mPhone.getText().toString();
+
+		Intent intent = new Intent(Intent.ACTION_VIEW);
+		intent.setData(Uri.fromParts("sms", phone, null));
+		intent.putExtra("sms_body", comments);
+
+		try {
+			startActivity(intent);
+			// startActivity can throw ActivityNotFoundException
+			// So to be robust our app will catch the exception ..
+		} catch (Exception ex) {
+			// We could tell the user it didn't work e.g. with a Toast
+			// Also we can print the exception message and stack trace in the
+			// log...
+			Log.e(TAG, "Could not send message", ex);
+		}
+	}
+
+	public void sendEmail() {
+
 		String comments = mComments.getText().toString();
 		String email = mEmail.getText().toString();
 		String phone = mPhone.getText().toString();
 		String name = mName.getText().toString();
-		
-		// Simplest way to send some text		
-//		Intent i = new Intent(Intent.ACTION_SEND);
-//		i.setType("text/plain");
-//		i.putExtra(Intent.EXTRA_TEXT, "What a wonderful app!");
-		
-		// SMS message
-//		Intent intent = new Intent(Intent.ACTION_VIEW);
-//		intent.setData(Uri.parse("sms:"+phone));
-//		// Alternative...
-//		// intent.setData(Uri.fromParts("sms", phone, null));
-//		intent.putExtra("sms_body", comments);
-		
+
 		String message = name + " says.. \n" + comments;
-		
 		if (phone.length() > 0) {
 			message = message + "\nPhone:" + phone;
 		}
@@ -67,14 +155,28 @@ public class MainActivity extends ActionBarActivity {
 		if (email.length() > 0) {
 			message = message + "\nAlternative Email:" + email;
 		}
-		
-		
+
+		// FYI There's lots of discussion about email intents on StackOverflow
+		// eg SEND vs SENDTO and setting the mimetype to message/rfc822
+		// Experimentally the following works on many devices
+		// - Tested on Android 1.6 and 4.x phones, and tablets and 2.x,4.x
+		// emulator.
+		// You will need to configure the emulator's email client with a
+		// real email address.
+
+		// To test unsupported schemes change "mailto" to "horseback"
 		Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 		emailIntent.setData(Uri.fromParts("mailto",
-				"feedback@myapp.somewhere...", null)); // SENDTO: "feedback@myapp.somewhere..." -> hardcoded
-		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "important news"); // Subject Field on Email
-		emailIntent.putExtra(Intent.EXTRA_TEXT, message); // Message email
-		
+				"feedback@myapp.somewhere...", null));
+		emailIntent.putExtra(Intent.EXTRA_SUBJECT, "important news");
+
+		emailIntent.putExtra(Intent.EXTRA_TEXT, message);
+
+		// Better .... use resolveActivity
+		// We can check to see if there is a configured email client
+		// BEFORE trying to start an activity
+		// Using this test we could have prevented the user from ever opening
+		// the survey...
 		if (emailIntent.resolveActivity(getPackageManager()) == null) {
 			Toast.makeText(getApplicationContext(),
 					"Please configure your email client!", Toast.LENGTH_LONG)
@@ -85,52 +187,53 @@ public class MainActivity extends ActionBarActivity {
 			startActivity(Intent.createChooser(emailIntent,
 					"Please choose your email app!"));
 		}
-		
-		// We are catching the problem after it happens!
-//		try {
-//			startActivity(emailIntent);
-//			// startActivity can throw ActivityNotFoundException
-//			// So to be robust our app will catch the exception ..
-//		} catch (Exception ex) {
-//			// We could tell the user it didn't work e.g. with a Toast
-//			// Also we can print the exception message and stack trace in the
-//			// log...
-//			Toast.makeText(this.getApplicationContext(), "Cannot send comments!",
-//					Toast.LENGTH_LONG).show();
-//			Log.e("Main activity", "Could not send an email!", ex);
-//		}
+
 	}
 
-	public void processFormOld(View duck) {
-		Log.d("MainActivity", "processFormOld");
+	public void processFormOriginal(View duck) {
+		// Not used in this video
+		// Validate and Animate
+
 		String comments = mComments.getText().toString();
 		String email = mEmail.getText().toString();
 		String phone = mPhone.getText().toString();
 		String name = mName.getText().toString();
 
-		// it's time to check if email adress has "@" symbol:
+		// Notice '=' means assign to the variable on the left
+		// to the value of the right hand side
+
 		int position = email.indexOf("@");
+
+		// Notice '==' means see if these integers are the same
 		if (position == -1) {
-			// if ( ! email.contains("@") ) ... We must do something
+			// Alternatively... if( ! email.contains("@") )
+
 			Toast.makeText(this.getApplicationContext(),
-					"Invalid email adress!", Toast.LENGTH_LONG).show();
+					"Invalid email address!", Toast.LENGTH_LONG).show();
 			mEmail.requestFocus();
-			return; // get our of - public void processForm();
+			return;
 		}
 
+		// You can ask a string for its length (number of characters)
 		int len = comments.length();
 
-		if (len == 0) { // if(!comments == null)
+		// To see if two integer values are equal use ==
+		// But don't use == for Strings (see below)!
+		if (len == 0) {
 			Toast.makeText(this.getApplicationContext(), "Give me comments!",
 					Toast.LENGTH_LONG).show();
 			mComments.requestFocus();
-			return; // get our of - public void processForm();
+			return;
 		}
-
 		// To see if two String objects are equal use the "equals" method
-		// if( name == null) OK (compare the two memory pointers)
-		// if (name == "Fred") Not OK! (because name points to a different
-		// object)
+		// For String pointers, '==' compares two memory pointers to see if they
+		// point to the same object
+		//
+		// if (name == "Fred") Not OK! (because name can point to a different
+		// String object, that might also contain F-r-e-d)
+		//
+		// if( name == null) is OK for this special case of comparing with null
+		//
 		if (name.equals("Fred")) {
 			Toast.makeText(this.getApplicationContext(), "Hi Fred!",
 					Toast.LENGTH_LONG).show();
@@ -157,20 +260,20 @@ public class MainActivity extends ActionBarActivity {
 			// If everything goes to plan though we will just continue here...
 
 			valueOK = true; // Change AFTER parseInt has returned
-			Log.d("MainActivity", "Phone number:" + value);
+			Log.d(TAG, "Phone number:" + value);
 
 		} catch (Exception e) {
 			// Uh oh... We caught that nasty exception!!
 			// (FYI More experienced programmers might choose to catch
 			// NumberFormatException)
 
-			Log.d("MainActivity",
+			Log.d(TAG,
 					"Invalid Phone Number!? Could not be turned into an Java integer value"
 							+ phone);
 		}
 
 		if (valueOK) {
-			Log.d("MainActivity", "Phone number as an integer value:" + value);
+			Log.d(TAG, "Phone number as an integer value:" + value);
 		}
 
 		String username = email.substring(0, position);
@@ -182,5 +285,10 @@ public class MainActivity extends ActionBarActivity {
 		// Move the duck to the right and fade it out
 		Animation anim = AnimationUtils.makeOutAnimation(this, true);
 		duck.startAnimation(anim);
+		//
+		// duck.setVisibility(View.INVISIBLE);
+		// Toast.makeText(this.getApplicationContext(), R.string.app_name,
+		// Toast.LENGTH_LONG).show();
 	}
+
 }

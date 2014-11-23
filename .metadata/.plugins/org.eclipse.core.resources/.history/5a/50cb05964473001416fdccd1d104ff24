@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Survey</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="user_name">Your full name</string>
+    <string name="submit">submit</string>
+    <string name="your_comments_and_feedback">Your comments and feedback</string>
+    <string name="user_phone_number">Your phone number</string>
+    
+
+</resources>

@@ -1247,7 +1247,13 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
+        public static final int duck=0x7f0a0015;
         public static final int hello_world=0x7f0a000e;
+        public static final int submit=0x7f0a0011;
+        public static final int user_email_address=0x7f0a0014;
+        public static final int user_name=0x7f0a0010;
+        public static final int user_phone_number=0x7f0a0013;
+        public static final int your_comments_and_feedback=0x7f0a0012;
     }
     public static final class style {
         /** 
