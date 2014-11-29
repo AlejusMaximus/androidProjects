@@ -88,7 +88,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 			public void run() {
 				int clickCount = 20 + mPrefs.getInt(KEY_CLICKED, 0); //initial value is 0
 				mPrefs.edit().putInt(KEY_CLICKED, clickCount).putBoolean("user", true).commit();
-				// [0x(Opacity/alpha)(R)(G)(B)]
+				// [0x(Opacity)(R)(G)(B)]
 				
 				mTextView.setTextColor(0xff00ff00);
 				mTextView.setText("Click!" + clickCount);			
