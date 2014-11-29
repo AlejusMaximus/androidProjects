@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="21" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="493" maximized="true" width="982" x="344" y="60">
 <fastViewData fastViewLocation="1024"/>
@@ -26,8 +26,8 @@
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -36,24 +36,10 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" partName="MainActivity.java" path="/home/aleix/workspaceAndroid/Survey/src/apps101/aleix/survey/MainActivity.java" title="MainActivity.java" tooltip="Survey/src/apps101/aleix/survey/MainActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Survey/src/apps101/aleix/survey/MainActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1700" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" partName="activity_main.xml" path="/home/aleix/workspaceAndroid/Survey/res/layout/activity_main.xml" title="activity_main.xml" tooltip="Survey/res/layout/activity_main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Survey/res/layout/activity_main.xml"/>
-</editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" partName="strings.xml" path="/home/aleix/workspaceAndroid/Survey/res/values/strings.xml" title="strings.xml" tooltip="Survey/res/values/strings.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Survey/res/values/strings.xml"/>
-</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -77,7 +63,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (3 items)"/>
+<category IMemento.internal.id="Errors (28 items)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="471" org.eclipse.ui.ide.pathField="482" org.eclipse.ui.ide.resourceField="233" org.eclipse.ui.ide.severityAndDescriptionField="481"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -141,7 +128,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.android.ide.eclipse.editors.CommonXmlEditor" activePerspective="AndroidAleix">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="AndroidAleix">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.ui.internal.ide.application.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="Resource"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -267,6 +254,8 @@
 <hide_toolbar_item_id id="org.eclipse.debug.ui.commands.RunToLine"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="com.android.ide.eclipse.ddms.views.FileExplorerView"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
@@ -274,8 +263,6 @@
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="com.android.ide.eclipse.ddms.views.DeviceView"/>
 <view id="com.android.ide.eclipse.adt.internal.lint.LintViewPart"/>
-<view id="com.android.ide.eclipse.ddms.views.FileExplorerView"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
@@ -301,8 +288,8 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.14696312" ratioLeft="271" ratioRight="1573" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.5838446" ratioLeft="571" ratioRight="407" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.21472868" ratioLeft="277" ratioRight="1013" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.6651652" ratioLeft="443" ratioRight="223" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -327,7 +314,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.76360226" ratioLeft="1221" ratioRight="378" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="right" ratio="0.7889447" ratioLeft="785" ratioRight="210" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
@@ -561,132 +548,16 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory>
-<editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Survey/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="" path="/Survey/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Survey/src/apps101/aleix/survey/MainActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Survey/res/layout/activity_main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/Survey/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Survey/res/values/strings.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/Survey/res/layout/activity_main.xml"/>
-</editors>
-<item historyLabel="activity_main.xml" index="0">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="1">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="Survey Manifest" index="4"/>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="449" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3">
-<position info="not_deleted" x="916" y="0"/>
-</item>
-<item historyLabel="activity_main.xml" index="1">
-<position info="not_deleted" x="606" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="activity_main.xml" index="3"/>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="1872" y="0"/>
-</item>
-<item historyLabel="strings.xml" index="5"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="1872" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="2370" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="2120" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="2383" y="0"/>
-</item>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="2120" y="47"/>
-</item>
-<item historyLabel="activity_main.xml" index="6"/>
-<item historyLabel="MainActivity.java" index="2">
-<position info="not_deleted" x="1700" y="0"/>
-</item>
-<item active="true" historyLabel="activity_main.xml" index="6"/>
-</navigationHistory>
+<navigationHistory/>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -694,10 +565,20 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_main.xml" tooltip="imagen/res/layout/activity_main.xml">
+<persistable path="/imagen/res/layout/activity_main.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="imagen/src/aleix/app101/imagen/MainActivity.java">
+<persistable path="/imagen/src/aleix/app101/imagen/MainActivity.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="Survey/src/apps101/aleix/survey/MainActivity.java">
+<persistable path="/Survey/src/apps101/aleix/survey/MainActivity.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="Survey/res/values/strings.xml">
 <persistable path="/Survey/res/values/strings.xml"/>
 </file>
@@ -709,9 +590,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="R.java" tooltip="Survey/gen/apps101/aleix/survey/R.java">
 <persistable path="/Survey/gen/apps101/aleix/survey/R.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="Survey/src/apps101/aleix/survey/MainActivity.java">
-<persistable path="/Survey/src/apps101/aleix/survey/MainActivity.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainActivity.java" tooltip="TaxangoSong/src/com/example/taxangosong/MainActivity.java">
 <persistable path="/TaxangoSong/src/com/example/taxangosong/MainActivity.java"/>
@@ -730,15 +608,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="strings.xml" tooltip="JavaBookAlejus/res/values/strings.xml">
 <persistable path="/JavaBookAlejus/res/values/strings.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_nasa.xml" tooltip="JavaBookAlejus/res/layout/activity_nasa.xml">
-<persistable path="/JavaBookAlejus/res/layout/activity_nasa.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="JavaBookAlejus/AndroidManifest.xml">
-<persistable path="/JavaBookAlejus/AndroidManifest.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="nasa.html" tooltip="JavaBookAlejus/assets/nasa.html">
-<persistable path="/JavaBookAlejus/assets/nasa.html"/>
 </file>
 </mruList>
 </workbench>
