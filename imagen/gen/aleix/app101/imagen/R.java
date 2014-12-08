@@ -1634,6 +1634,7 @@ containing a value of this type.
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020031;
         public static final int abc_textfield_search_material=0x7f020032;
         public static final int ic_launcher=0x7f020033;
+        public static final int rain_penguin_180=0x7f020034;
     }
     public static final class id {
         public static final int action_bar=0x7f090033;
@@ -1649,11 +1650,12 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090030;
         public static final int action_mode_bar_stub=0x7f09002f;
         public static final int action_mode_close_button=0x7f090022;
-        public static final int action_settings=0x7f090041;
+        public static final int action_settings=0x7f090043;
         public static final int activity_chooser_view_content=0x7f090023;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
         public static final int bottom=0x7f09001e;
+        public static final int button1=0x7f090041;
         public static final int checkbox=0x7f09002b;
         public static final int collapseActionView=0x7f090015;
         public static final int decor_content_parent=0x7f090031;
@@ -1670,6 +1672,7 @@ containing a value of this type.
         public static final int icon=0x7f090028;
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090025;
+        public static final int imageView1=0x7f090042;
         public static final int listMode=0x7f09000a;
         public static final int list_item=0x7f090027;
         public static final int middle=0x7f09001d;

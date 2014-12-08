@@ -1,7 +1,15 @@
 package aleix.app101.imagen;
 
+import java.io.InputStream;
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -9,24 +17,82 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends ActionBarActivity implements OnClickListener {
+/**
+ * @author aleix
+ *
+ */
+public class MainActivity extends ActionBarActivity {
 
 	
-	private static final String KEY_CLICKED = "clicked";
+	private static final int REQUEST_CODE = 1;
+	//private static final String KEY_CLICKED = "clicked";
 
 	private static final String TAG = MainActivity.class.getSimpleName();
+
+	private Bitmap mBitmap;
+
 	
-	private static final String KEY_COUNT = "count";
-	private SharedPreferences mPrefs;
-	private TextView mTextView;
+	//private static final String KEY_COUNT = "count";
+	//private SharedPreferences mPrefs;
+	//private TextView mTextView;
+	//private Bitmap mBitmap;
+	//private Canvas mCanvas;
+	//private ImageView mImageView;
+
+	//private Paint mPaint;
+
+	//private Bitmap mRainPenguin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.d(TAG,"onCreate!");
-		//Start using preferences
+		setContentView(R.layout.activity_main);
+		OnClickListener listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Do some intent magic to open the Gallery?
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT); //intent created
+				intent.setType("image/*");
+				//startActivityForResult(Intent.createChooser(target, title), requestCode)
+				//using a requestCode we can get notify when a child activity is complete:
+				startActivityForResult(Intent.createChooser(intent, "Select..."), REQUEST_CODE);
+				
+			}
+		};
+		findViewById(R.id.button1).setOnClickListener(listener);
+		
+/*		mBitmap = Bitmap.createBitmap(480, 600, Bitmap.Config.ARGB_8888); // A = Alpha = Opaqueness
+		
+		1) Setup Canvas passing a Bitmap object needed
+		mCanvas = new Canvas(mBitmap);
+		
+		2) Color (Background)
+		mCanvas.drawColor(0xffff6600); // Orange
+
+		3) Picture
+		mRainPenguin = BitmapFactory.decodeResource( getResources(), R.drawable.rain_penguin_180);
+		mCanvas.drawBitmap(mRainPenguin, 100, 100, null); // mCanvas.drawBitmap(bitmap, left, top, paint)
+		
+		4) Draw line 
+//		mPaint = new Paint();
+//		mPaint.setColor(0xff000099); // Blue
+//		mPaint.setStrokeWidth(16); // A thick line
+//		// mCanvas.drawLine(startX, startY, stopX, stopY, paint) - From top left to bottom right
+//		mCanvas.drawLine(0, 0, 480, 600, mPaint);
+		
+		5) Setup a ImageView passing a Bitmap object which has been modified using Canvas
+		mImageView = new ImageView(this);
+		mImageView.setImageBitmap(mBitmap);
+		setContentView(mImageView);*/
+				
+		
+/*		//Start using preferences
 		mPrefs = getPreferences(MODE_PRIVATE);
 		// mPrefs represents information stored on the flash disk.
 		int count = mPrefs.getInt(KEY_COUNT, 0); // 0 is the initial value
@@ -53,7 +119,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		setContentView(mTextView);		
 		//setContentView(R.layout.activity_main);
 		
-		mTextView.setOnClickListener(this);
+		mTextView.setOnClickListener(this);*/
 	}
 
 	@Override
@@ -74,8 +140,26 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+	
 	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if(requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+			Uri uri = data.getData();
+			Log.d(TAG,uri.toString());
+			Toast.makeText(getApplicationContext(), uri.toString(), Toast.LENGTH_LONG).show();
+			try {
+				InputStream stream = getContentResolver().openInputStream(uri);
+				mBitmap = BitmapFactory.decodeStream(stream);
+				ImageView v = (ImageView) findViewById(R.id.imageView1);
+				v.setImageBitmap(mBitmap);
+			} catch (Exception e) {
+				Log.e(TAG,"Decoding Bitmap",e);
+			}
+		}
+	}
+
+
+/*	@Override
 	public void onClick(View v) {
 		
 		// SystemClock.sleep(2000); // Never do this!
@@ -99,5 +183,5 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		// i.e. 2 seconds
 		mTextView.postDelayed(adder, 2000);
 
-	}
+	}*/
 }

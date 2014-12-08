@@ -1,0 +1,137 @@
+package aleix.app101.imagen;
+
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+/**
+ * @author aleix
+ *
+ */
+public class MainActivity extends ActionBarActivity {
+
+	
+	//private static final String KEY_CLICKED = "clicked";
+
+	private static final String TAG = MainActivity.class.getSimpleName();
+	
+	//private static final String KEY_COUNT = "count";
+	//private SharedPreferences mPrefs;
+	//private TextView mTextView;
+	private Bitmap mBitmap;
+	private Canvas mCanvas;
+	private ImageView mImageView;
+
+	private Paint mPaint;
+
+	private Bitmap mRainPenguin;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.d(TAG,"onCreate!");
+		mBitmap = Bitmap.createBitmap(480, 600, Bitmap.Config.ARGB_8888); // A = Alpha = Opaqueness
+		
+		mRainPenguin = BitmapFactory.decodeResource( getResources(), R.drawable.rain_penguin_180);
+		
+		mCanvas = new Canvas(mBitmap);
+		mCanvas.drawColor(0xffff6600); // Orange
+		
+		mPaint = new Paint();
+		mPaint.setColor(0xff000099); // Blue
+		mPaint.setStrokeWidth(16); // A thick line
+		// mCanvas.drawLine(startX, startY, stopX, stopY, paint)-  From top left to bottom right
+		mCanvas.drawLine(0, 0, 480, 600, mPaint);
+
+		mImageView = new ImageView(this);
+		mImageView.setImageBitmap(mBitmap);
+		setContentView(mImageView);
+				
+		
+/*		//Start using preferences
+		mPrefs = getPreferences(MODE_PRIVATE);
+		// mPrefs represents information stored on the flash disk.
+		int count = mPrefs.getInt(KEY_COUNT, 0); // 0 is the initial value
+		Log.d(TAG,"Count is "+count);
+		
+		count = count +1;
+		
+		// If we want to edit it on flash disk
+		Editor editor = mPrefs.edit(); // Source > Organize imports		
+		//editor.putInt(KEY_COUNT, count);
+		// only when commit() is applied the changes are written on flash disk
+		//editor.commit();
+		
+		// All commands together:
+		editor.putInt(KEY_COUNT, count).commit();
+		
+		Log.d(TAG,"Count is "+count);
+		
+		// We can make Text view from a Java Object
+		mTextView = new TextView(this); // is not displayed yet, is not part of the screen
+		mTextView.setTextSize(80);
+		mTextView.setText("count is: " + count);
+		
+		setContentView(mTextView);		
+		//setContentView(R.layout.activity_main);
+		
+		mTextView.setOnClickListener(this);*/
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+/*	@Override
+	public void onClick(View v) {
+		
+		// SystemClock.sleep(2000); // Never do this!
+		// Any long-running method will slow down
+		// the whole look and feel of Android and
+		// make your app very unresponsive and sluggish
+		
+		Runnable adder = new Runnable() {
+			@Override
+			public void run() {
+				int clickCount = 20 + mPrefs.getInt(KEY_CLICKED, 0); //initial value is 0
+				mPrefs.edit().putInt(KEY_CLICKED, clickCount).putBoolean("user", true).commit();
+				// [0x(Opacity/alpha)(R)(G)(B)]
+				
+				mTextView.setTextColor(0xff00ff00);
+				mTextView.setText("Click!" + clickCount);			
+			}
+		};
+		
+		// Run the adder code in 2000 milliseconds time
+		// i.e. 2 seconds
+		mTextView.postDelayed(adder, 2000);
+
+	}*/
+}
