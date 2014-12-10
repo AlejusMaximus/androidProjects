@@ -143,59 +143,21 @@ public class MainActivity extends ActionBarActivity {
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+		if(requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
 			Uri uri = data.getData();
-			Log.d(TAG, uri.toString());
-			// nos muestra por pantalla de donde ha extraido la imagen
-			Toast.makeText(getApplicationContext(), uri.toString(),
-					Toast.LENGTH_LONG).show();
+			Log.d(TAG,uri.toString());
+			//nos muestra por pantalla de donde ha extraido la imagen
+			Toast.makeText(getApplicationContext(), uri.toString(), Toast.LENGTH_LONG).show();
 			try {
-				// Open stream object
 				InputStream stream = getContentResolver().openInputStream(uri);
-				// create options object
-				BitmapFactory.Options options = new BitmapFactory.Options();
-				options.inJustDecodeBounds = true;
-				mBitmap = BitmapFactory.decodeStream(stream, null, options);// decodeStream
-																			// into
-																			// option's
-																			// Bitmap
-																			// object.
-				// we must check the stream size before make it
-				// Get Height and Width
-				int h = options.outHeight;
-				int w = options.outWidth;
-				Log.d(TAG, "Bitmap raw size " + w + "x" + h);
-				// stream should be close after decoding it
-				stream.close();
-				// What we should do with this size ? what should be our ideal
-				// size?
-				// We could find out the size of the display (option1)
-				// Or the size of the view (option2)
-
-				int displayW = getResources().getDisplayMetrics().widthPixels;
-				int displayH = getResources().getDisplayMetrics().heightPixels;
-
-				// The stream will be open for a second time, but we will do
-				// more than just read the bounds, the size. We will create a
-				// bitmap for real.
-				int sample = 1;
-
-				while (w > displayW * sample || h > displayH * sample) {
-					sample = sample * 2;
-				}
-				Log.d(TAG, "Sampling at " + sample);
-
-				options.inJustDecodeBounds = false;
-				options.inSampleSize = sample;
-
-				stream = getContentResolver().openInputStream(uri);
-				mBitmap = BitmapFactory.decodeStream(stream, null, options);
-				stream.close();
-
+				mBitmap = BitmapFactory.decodeStream(stream);
+				//we must check the stream size before make it
+				
+				
 				ImageView v = (ImageView) findViewById(R.id.imageView1);
 				v.setImageBitmap(mBitmap);
 			} catch (Exception e) {
-				Log.e(TAG, "Decoding Bitmap", e);
+				Log.e(TAG,"Decoding Bitmap",e);
 			}
 		}
 	}

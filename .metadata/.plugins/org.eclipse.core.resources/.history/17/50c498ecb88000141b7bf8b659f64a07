@@ -164,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
 				// Get Height and Width
 				int h = options.outHeight;
 				int w = options.outWidth;
-				Log.d(TAG, "Bitmap raw size " + w + "x" + h);
+				Log.d(TAG, "Bitmap raw size" + w + "x" + h);
 				// stream should be close after decoding it
 				stream.close();
 				// What we should do with this size ? what should be our ideal
