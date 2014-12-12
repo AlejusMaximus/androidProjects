@@ -1,0 +1,286 @@
+package aleix.app101.imagen;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
+import android.text.TextPaint;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+/**
+ * @author aleix
+ *
+ */
+public class MainActivity extends ActionBarActivity {
+
+	
+	private static final int REQUEST_CODE = 1;
+	//private static final String KEY_CLICKED = "clicked";
+
+	private static final String TAG = MainActivity.class.getSimpleName();
+
+	private Bitmap mBitmap;
+
+	
+	//private static final String KEY_COUNT = "count";
+	//private SharedPreferences mPrefs;
+	//private TextView mTextView;
+	//private Bitmap mBitmap;
+	//private Canvas mCanvas;
+	//private ImageView mImageView;
+
+	//private Paint mPaint;
+
+	//private Bitmap mRainPenguin;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Log.d(TAG,"onCreate!");
+		setContentView(R.layout.activity_main);
+		OnClickListener listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// Do some intent magic to open the Gallery?
+				Intent intent = new Intent(Intent.ACTION_GET_CONTENT); //intent created
+				intent.setType("image/*");
+				//startActivityForResult(Intent.createChooser(target, title), requestCode)
+				//using a requestCode we can get notify when a child activity is complete:
+				startActivityForResult(Intent.createChooser(intent, "Select..."), REQUEST_CODE);
+				
+			}
+		};
+		findViewById(R.id.button1).setOnClickListener(listener);
+		
+/*		mBitmap = Bitmap.createBitmap(480, 600, Bitmap.Config.ARGB_8888); // A = Alpha = Opaqueness
+		
+		1) Setup Canvas passing a Bitmap object needed
+		mCanvas = new Canvas(mBitmap);
+		
+		2) Color (Background)
+		mCanvas.drawColor(0xffff6600); // Orange
+
+		3) Picture
+		mRainPenguin = BitmapFactory.decodeResource( getResources(), R.drawable.rain_penguin_180);
+		mCanvas.drawBitmap(mRainPenguin, 100, 100, null); // mCanvas.drawBitmap(bitmap, left, top, paint)
+		
+		4) Draw line 
+//		mPaint = new Paint();
+//		mPaint.setColor(0xff000099); // Blue
+//		mPaint.setStrokeWidth(16); // A thick line
+//		// mCanvas.drawLine(startX, startY, stopX, stopY, paint) - From top left to bottom right
+//		mCanvas.drawLine(0, 0, 480, 600, mPaint);
+		
+		5) Setup a ImageView passing a Bitmap object which has been modified using Canvas
+		mImageView = new ImageView(this);
+		mImageView.setImageBitmap(mBitmap);
+		setContentView(mImageView);*/
+				
+		
+/*		//Start using preferences
+		mPrefs = getPreferences(MODE_PRIVATE);
+		// mPrefs represents information stored on the flash disk.
+		int count = mPrefs.getInt(KEY_COUNT, 0); // 0 is the initial value
+		Log.d(TAG,"Count is "+count);
+		
+		count = count +1;
+		
+		// If we want to edit it on flash disk
+		Editor editor = mPrefs.edit(); // Source > Organize imports		
+		//editor.putInt(KEY_COUNT, count);
+		// only when commit() is applied the changes are written on flash disk
+		//editor.commit();
+		
+		// All commands together:
+		editor.putInt(KEY_COUNT, count).commit();
+		
+		Log.d(TAG,"Count is "+count);
+		
+		// We can make Text view from a Java Object
+		mTextView = new TextView(this); // is not displayed yet, is not part of the screen
+		mTextView.setTextSize(80);
+		mTextView.setText("count is: " + count);
+		
+		setContentView(mTextView);		
+		//setContentView(R.layout.activity_main);
+		
+		mTextView.setOnClickListener(this);*/
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
+			Uri uri = data.getData();
+			Log.d(TAG, uri.toString());
+			// nos muestra por pantalla de donde ha extraido la imagen
+			Toast.makeText(getApplicationContext(), uri.toString(),
+					Toast.LENGTH_LONG).show();
+			try {
+				// Open stream object
+				InputStream stream = getContentResolver().openInputStream(uri);
+				// create options object
+				BitmapFactory.Options options = new BitmapFactory.Options();
+				options.inJustDecodeBounds = true;
+				mBitmap = BitmapFactory.decodeStream(stream, null, options);// decodeStream
+																			// into
+																			// option's
+																			// Bitmap
+																			// object.
+				// we must check the stream size before make it
+				// Get Height and Width
+				int h = options.outHeight;
+				int w = options.outWidth;
+				Log.d(TAG, "Bitmap raw size " + w + "x" + h);
+				// stream should be close after decoding it
+				stream.close();
+				// What we should do with this size ? what should be our ideal
+				// size?
+				// We could find out the size of the display (option1)
+				// Or the size of the view (option2)
+
+				int displayW = getResources().getDisplayMetrics().widthPixels;
+				int displayH = getResources().getDisplayMetrics().heightPixels;
+
+				// The stream will be open for a second time, but we will do
+				// more than just read the bounds, the size. We will create a
+				// bitmap for real.
+				int sample = 1;
+
+				while (w > displayW * sample || h > displayH * sample) {
+					sample = sample * 2;
+				}
+				Log.d(TAG, "Sampling at " + sample);
+
+				options.inJustDecodeBounds = false;
+				options.inSampleSize = sample; //Down sampling
+
+				stream = getContentResolver().openInputStream(uri);
+				Bitmap bm = BitmapFactory.decodeStream(stream, null, options);
+				stream.close();
+				
+				//we should be polite to the system and say bitmap recycle.
+				if(mBitmap != null){
+					//This means its still pointing to the old Bitmap
+					mBitmap.recycle();
+				}
+				//Now mBitmap will will pointing to another field
+				//Make a mutable bitmap...
+				mBitmap = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888);
+				// Create a new Canvas to be drawing into our mutable bitmap
+				Canvas c = new Canvas(mBitmap);
+				c.drawBitmap(bm, 0, 0, null);
+				TextPaint tp = new TextPaint();
+				tp.setTextSize(bm.getHeight()/2); // set the size of our text
+				tp.setColor(0x800000ff);  //AARRGGBB
+				c.drawText("Gotcha", 0, bm.getHeight()/2, tp);
+				 
+				
+				
+				
+				//recycle call tells Android that we've finished using the contents
+				//and it can go back and, release the system
+				bm.recycle();
+				//If we would like to add a canvas for 2.X Android, first we need to make a new bitmap parse:
+				
+				
+
+				ImageView v = (ImageView) findViewById(R.id.imageView1);
+				v.setImageBitmap(mBitmap);
+			} catch (Exception e) {
+				Log.e(TAG, "Decoding Bitmap", e);
+			}
+		}
+	}
+
+
+/*	@Override
+	public void onClick(View v) {
+		
+		// SystemClock.sleep(2000); // Never do this!
+		// Any long-running method will slow down
+		// the whole look and feel of Android and
+		// make your app very unresponsive and sluggish
+		
+		Runnable adder = new Runnable() {
+			@Override
+			public void run() {
+				int clickCount = 20 + mPrefs.getInt(KEY_CLICKED, 0); //initial value is 0
+				mPrefs.edit().putInt(KEY_CLICKED, clickCount).putBoolean("user", true).commit();
+				// [0x(Opacity/alpha)(R)(G)(B)]
+				
+				mTextView.setTextColor(0xff00ff00);
+				mTextView.setText("Click!" + clickCount);			
+			}
+		};
+		
+		// Run the adder code in 2000 milliseconds time
+		// i.e. 2 seconds
+		mTextView.postDelayed(adder, 2000);
+
+	}*/
+	public void saveAndShare(View v){
+		if(mBitmap == null){
+			//If the user press the button before choosing an image
+			return;
+		}
+		File path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		//File is a file object
+		Log.d(TAG, "saveAndShare path = "+path);
+		path.mkdirs(); //its gonna make intermediate directories
+		String filename = "Imagen.jpg";
+		
+		File file = new File(path,filename);
+		//We need to transform the bytes into an image standard as: PNG or JPEG
+		//JPEG is better
+		FileOutputStream stream;
+		try {
+			stream = new FileOutputStream(file);
+			mBitmap.compress(CompressFormat.JPEG,100,stream);
+			//Close to make sure the stream is pushed out
+			stream.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+}

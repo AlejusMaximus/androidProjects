@@ -1,17 +1,25 @@
 package aleix.app101.imagen;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
+import android.text.TextPaint;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -186,11 +194,37 @@ public class MainActivity extends ActionBarActivity {
 				Log.d(TAG, "Sampling at " + sample);
 
 				options.inJustDecodeBounds = false;
-				options.inSampleSize = sample;
+				options.inSampleSize = sample; //Down sampling
 
 				stream = getContentResolver().openInputStream(uri);
-				mBitmap = BitmapFactory.decodeStream(stream, null, options);
+				Bitmap bm = BitmapFactory.decodeStream(stream, null, options);
 				stream.close();
+				
+				//we should be polite to the system and say bitmap recycle.
+				if(mBitmap != null){
+					//This means its still pointing to the old Bitmap
+					mBitmap.recycle();
+				}
+				//Now mBitmap will will pointing to another field
+				//Make a mutable bitmap...
+				mBitmap = Bitmap.createBitmap(bm.getWidth(), bm.getHeight(), Bitmap.Config.ARGB_8888);
+				// Create a new Canvas to be drawing into our mutable bitmap
+				Canvas c = new Canvas(mBitmap);
+				c.drawBitmap(bm, 0, 0, null);
+				TextPaint tp = new TextPaint();
+				tp.setTextSize(bm.getHeight()/2); // set the size of our text
+				tp.setColor(0x800000ff);  //AARRGGBB
+				c.drawText("Gotcha", 0, bm.getHeight()/2, tp);
+				 
+				
+				
+				
+				//recycle call tells Android that we've finished using the contents
+				//and it can go back and, release the system
+				bm.recycle();
+				//If we would like to add a canvas for 2.X Android, first we need to make a new bitmap parse:
+				
+				
 
 				ImageView v = (ImageView) findViewById(R.id.imageView1);
 				v.setImageBitmap(mBitmap);
@@ -226,4 +260,57 @@ public class MainActivity extends ActionBarActivity {
 		mTextView.postDelayed(adder, 2000);
 
 	}*/
+	public void saveAndShare(View v) {
+		if (mBitmap == null) {
+			// If the user press the button before choosing an image
+			return;
+		}
+		File path = Environment
+				.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+		// File is a file object
+		Log.d(TAG, "saveAndShare path = " + path);
+		path.mkdirs(); // its gonna make intermediate directories
+		// Note, for display purposes
+		// SimpleDateFormat.getTimeInstance()
+		// getDateTimeInstance() or getDateIntance
+		// are more appropriate.
+		// For filenames we can use the following specification
+		String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss")
+				.format(new Date());
+
+		String filename = "Imagen_" + timestamp + ".jpg";
+		// Alternatively ... use System.currentTimeMillis()
+
+		// Creating a new File object in Java does not create a new
+		// file on the device. The file object just represents
+		// a location or path that may or may not exist
+		File file = new File(path, filename);
+		// We need to transform the bytes into an image standard as: PNG or JPEG
+		// JPEG is better
+		FileOutputStream stream;
+		try {
+			stream = new FileOutputStream(file);
+			mBitmap.compress(CompressFormat.JPEG, 100, stream);
+			// Close to make sure the stream is pushed out
+			stream.close();
+		} catch (Exception e) {
+			Log.e(TAG, "saveAndShare (compressing): ", e);
+			// A solution must be implemented
+			// or:
+			return;// the next lines of code will not be executed
+		}
+		// We have to inform the mediascanner in order to find the compressed
+		// image!
+		Uri uri = Uri.fromFile(file);
+		Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+		intent.setData(uri);
+		sendBroadcast(intent);
+		// Once we saved the compressed image, we can shared with others
+
+		Intent share = new Intent(Intent.ACTION_SEND);
+		share.setType("image/jpeg");
+		share.putExtra(Intent.EXTRA_STREAM, uri);
+		startActivity(Intent.createChooser(share, "Share using..."));
+
+	}
 }
